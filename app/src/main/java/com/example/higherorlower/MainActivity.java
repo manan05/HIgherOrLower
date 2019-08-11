@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         btnGuess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(etNumber == null){
-                    etNumber.setText(null);
-                }
                 int guessValue = Integer.parseInt(etNumber.getText().toString());
                 String message;
 
