@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     if (guessValue > randomNumber) {
                         message = "Lower !";
                         etNumber.setText("");
+                        
                     } else if (guessValue < randomNumber) {
                         message = "Higher !";
                         etNumber.setText("");
