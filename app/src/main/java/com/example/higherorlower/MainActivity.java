@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public void generateRandomNos(){
         Random rand = new Random();
         randomNumber = rand.nextInt(20)+1;
+        //here write +1 because nextInt returns a value from 0 to (bound-1)
     }
 
     @Override
@@ -34,7 +35,13 @@ public class MainActivity extends AppCompatActivity {
         btnGuess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (!etNumber.getText().toString().equals("")) {
+                    //We use the above statement so that
+                    //If the editText is empty and we press guess button
+                    //then we only run the code if it contains data
+                    //so it wont crash
+                    //and wont give null pointer exception
                     int guessValue = Integer.parseInt(etNumber.getText().toString());
                     String message;
 
