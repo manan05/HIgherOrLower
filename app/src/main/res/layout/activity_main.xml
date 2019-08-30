@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@android:color/darker_gray">
 
 
     <TextView
@@ -55,5 +56,6 @@
         android:text="Guess!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/etNumber"
+        android:background="@android:color/holo_green_light"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
