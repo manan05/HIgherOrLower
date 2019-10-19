@@ -1,13 +1,12 @@
 package com.example.higherorlower;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
@@ -16,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnGuess;
     EditText etNumber;
 
-    public void generateRandomNos(){
+    public void generateRandomNos() {
         Random rand = new Random();
-        randomNumber = rand.nextInt(20)+1;
+        randomNumber = rand.nextInt(20) + 1;
         //here write +1 because nextInt returns a value from 0 to (bound-1)
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnGuess = findViewById(R.id.btnGuess);
@@ -36,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if (etNumber.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "NOPE! Guess a number first",
+                            Toast.LENGTH_SHORT).show();
+                }
                 if (!etNumber.getText().toString().equals("")) {
                     //We use the above statement so that
                     //If the editText is empty and we press guess button
@@ -48,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
                     if (guessValue > randomNumber) {
                         message = "Lower !";
                         etNumber.setText("");
-                        
+
                     } else if (guessValue < randomNumber) {
                         message = "Higher !";
                         etNumber.setText("");
-                        
+
                     } else {
                         message = "You got it right. GG ";
                         etNumber.setText("");
@@ -61,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }
-            }});
+            }
+        });
 
     }
 }
